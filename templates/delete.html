@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Items</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='products.css') }}">
+</head>
+<body>
+<div class="card-container">
+    <h2>Delete Items From Here</h2>
+    <form form id="form" data-parsley-validate method="POST" enctype="multipart/form-data">  
+        {% for book,image in all_products %}
+            <img src="/static/Images/{{image}}" width="250px" height="200px">
+            <h1>{{book.name}}</h1>
+            <p class="pricing">{{book.price}}</p>
+            <p>{{book.description}}</p>
+            <form method="POST">
+                <button name="delete" value="{{book.id}}">
+                    Delete
+                </button>
+            </form>
+        {% endfor %}
+</div>
+    
+</body>
+</html>

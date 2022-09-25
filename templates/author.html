@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ others[0].writer }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='products.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+    <title>Product</title>
+</head>
+<body>
+  <a class="top-bar-button" href="{{ url_for('home')}}">
+    <button class="buttonr button5">Home</button>
+  </a>
+  <h2 style="font-family: 'Courier New', Courier, monospace;">All Books By {{ others[0].writer }}</h2>
+        <button class="header__checkout snipcart-checkout buttony">
+            <img src="https://media.istockphoto.com/vectors/shopping-cart-icon-with-editable-stroke-and-pixel-perfect-vector-id1185675328"  height="50px" width="50px"/>
+            <br>
+            
+        </button>
+    </div>
+    <br>
+    <br>
+
+{% for book in others %}
+<div class="book-container">
+  <div class="box">
+    <div class="product-img">
+      <img src="/static/Images/{{book.path}} " height="250px" width="200px" alt="Book Image"/>
+    </div>
+    <div class="product-info">
+      <h5>{{book.name}}</h5>
+    </br>
+      <p class="description"><a class="authorurl" href="/author/{{book.writer}}">By {{book.writer}}</a></p>
+      <p class="price">{{book.price}} Taka</p>
+      <p style="white-space: pre-line;" class="description">{{book.description}}</p>
+      <br />
+      <a href="/book/{{ book.id }}">Click Here For More Info</a>
+      <button class="snipcart-add-item"
+      data-item-id="{{book.id}}"
+      data-item-price="{{book.price}}"
+      data-item-url="/"
+      data-item-description="{{book.description}}"
+      data-item-name="{{book.name}}">
+      Buy Now</button>
+    </div>
+    
+  </div>
+</div>
+<br>
+{% endfor %}
+
+    <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+    <div id="snipcart" data-config-modal-style="side" data-api-key="ZmEyY2JhMWYtNmY4ZS00ODdkLWI5M2QtMjAxOGI1Njc0MTY2NjM3NDQwNzk0Nzg3OTQyMTI0" hidden>
+      <billing section="bottom">
+        <fieldset class="snipcart-form__set">
+            <div class="snipcart-form__field">
+                <snipcart-label class="snipcart__font--tiny" for="phone-number">
+                    Phone Number
+                </snipcart-label>
+                <snipcart-input type="tel" pattern="[0]{1}[1]{1}[0-9]{9}" name="phone-number" required></snipcart-input>
+            </div>
+        </fieldset>
+      </billing>
+      <billing section="top">
+      <fieldset class="snipcart-form__set">
+        <div class="snipcart-form__field">
+            <snipcart-label class="snipcart__font--tiny" for="special-note">
+                Special Note
+            </snipcart-label>
+            <snipcart-input name="special-note"></snipcart-input>
+        </div>
+    </fieldset>
+    </billing>
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+    <!-- Start Footer bottom Area -->
+<footer>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-icons">
+              <ul>
+                <li>
+                  <a href="https://web.facebook.com/profile.php?id=100068523823023">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bd.linkedin.com/in/upal-kundu-229b4117b">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="credits">
+              First Ever Online Shop That Loooks After you!
+            </div>
+            <div class="credits">
+              Based on Alfadanga, Faridpur
+            </div>
+            <div class="credits">
+              <a href="tel:+8801312409551">01312409551</a>
+            </div>
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright 2021. | <strong><a href="https://web.facebook.com/profile.php?id=100068523823023">SUB Store </a></strong> | All Rights Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

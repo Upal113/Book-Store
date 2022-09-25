@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <form id="form" data-parsley-validate action="{{ url_for('add_item') }}" method="POST" enctype="multipart/form-data">
+        <h1>Add Products from here</h1>
+        <fieldset>
+                  <input class="floatlabel" name="book-name" id="name" type="text" placeholder="Book Name" required data-parsley-no-focus data-parsley-error-message="Please enter your name." />
+        </fieldset>
+        <fieldset>
+            <input class="floatlabel" name="book-writer-name" id="name" type="text" placeholder="Author Name" required data-parsley-no-focus data-parsley-error-message="Please enter your name." />
+        </fieldset>
+        <fieldset>
+            <input class="floatlabel" name="book-price" type="number" placeholder="Price" required data-parsley-no-focus data-parsley-error-message="Please enter Price of the Product." />
+        </fieldset>
+        <fieldset>
+                  <textarea name="book-description" class="floatlabel" placeholder="Book Description" required data-parsley-no-focus data-parsley-error-message="Please enter a message." ></textarea>
+            </fieldset>
+        <fieldset>
+        <input name='book-image' type='file' required/>
+        <fieldset>
+            <input class="floatlabel" name="security-key" type="number" placeholder="Enter Security Key" required data-parsley-no-focus data-parsley-error-message="Please enter Price of the Product." />
+        </fieldset>
+        <br>
+        <button value="submit">Submit </button>
+    </form>
+</body>
+</html>

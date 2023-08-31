@@ -16,6 +16,7 @@ import random
 cwd = os.getcwd()
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=100)
+app.app_context().push()
 app.secret_key = 'qewtrytydy'
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Books.sql'
 app.config['SECRET_KEY'] = 'superb'
